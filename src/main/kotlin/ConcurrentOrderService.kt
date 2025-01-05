@@ -24,12 +24,12 @@ class ConcurrentOrderService {
                 println("Thread ${Thread.currentThread().threadId()}의 주문 정보:")
                 println("\t${productName}: ${threadLocalOrderDatabase.get()[productName]!!.size}건 ([${threadLocalOrderDatabase.get()[productName]!!.last().amount}])")
 
-                threadLocalOrderDatabase.remove()
                 currentStock - amount
             } else {
                 currentStock
             }
         }
+        threadLocalOrderDatabase.remove()
     }
 
     // 재고 조회
